@@ -2,112 +2,96 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>KGL Dashboard</title>
+    <title>Produce Procurement</title>
 
     <!-- OFFLINE BOOTSTRAP -->
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="css/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-icons/bootstrap-icons.css">
+
     <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+
 </head>
-<body>
+<body class="bg-light">
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg bg-success shadow-sm py-3">
-    <div class="container d-flex align-items-center justify-content-between">
-
+    <!-- SIDEBAR -->
+    <div class="sidebar d-flex flex-column align-items-start">
         <!-- Logo -->
-        <a class="d-flex align-items-center text-white text-decoration-none" href="dashboard.html">
+        <a class="d-flex align-items-center text-white text-decoration-none mb-4 px-3" href="dashboard.html">
             <img src="/assets/image/no background.png" alt="KGL Logo" width="50" height="50" class="rounded-circle me-2 shadow-sm">
-            
+           
         </a>
 
-        <!-- Navbar links -->
-        <div class="d-flex align-items-center" id="kglNavbar">
-
-            <a href="dashboard.html" class="nav-link text-white px-3 active">Dashboard</a>
-            <a href="procurement.html" class="nav-link text-white px-3">Procurement</a>
-            <a href="sales.html" class="nav-link text-white px-3">Sales</a>
-            <a href="credit-sales.html" class="nav-link text-white px-3">Credit Sales</a>
-            <a href="reports.html" class="nav-link text-white px-3">Reports</a>
-
-        </div>
-
+        <!-- Links -->
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="procurement.html">Procurement</a>
+        <a href="sales.html">Sales</a>
+        <a href="credit-sales.html">Credit Sales</a>
+        <a href="reports.html">Reports</a>
     </div>
-</nav>
 
-
-
-<!-- PAGE TITLE -->
-<div class="container mt-4">
-    <div class="row">
-        <div class="col text-center">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <!-- PAGE TITLE -->
+        <div class="text-center mb-4">
             <h3 class="fw-bold text-success">Dashboard</h3>
             <p class="text-muted">Welcome to Karibu Groceries Management System</p>
         </div>
-    </div>
-</div>
 
-<!-- SUMMARY CARDS -->
-<div class="container mt-4">
-    <div class="d-flex flex-wrap justify-content-center gap-4">
+        <!-- SUMMARY CARDS -->
+        <div class="d-flex flex-wrap justify-content-center gap-4 mb-5">
+            <div class="card shadow hover-card text-center p-3 flex-fill" style="max-width: 300px;">
+                <div class="card-body">
+                    <i class="bi bi-box-seam fs-1 text-success mb-2"></i>
+                    <h6 class="text-muted">Total Stock Available</h6>
+                    <h4 class="text-success fw-bold">12,000 KG</h4>
+                </div>
+            </div>
 
-        <div class="card shadow hover-card text-center p-3 flex-fill" style="max-width: 300px;">
-            <div class="card-body">
-                <i class="bi bi-box-seam fs-1 text-success mb-2"></i>
-                <h6 class="text-muted">Total Stock Available</h6>
-                <h4 class="text-success fw-bold">12,000 KG</h4>
+            <div class="card shadow hover-card text-center p-3 flex-fill" style="max-width: 300px;">
+                <div class="card-body">
+                    <i class="bi bi-currency-dollar fs-1 text-success mb-2"></i>
+                    <h6 class="text-muted">Today's Sales</h6>
+                    <h4 class="text-success fw-bold">UGX 8,500,000</h4>
+                </div>
+            </div>
+
+            <div class="card shadow hover-card text-center p-3 flex-fill" style="max-width: 300px;">
+                <div class="card-body">
+                    <i class="bi bi-wallet2 fs-1 text-danger mb-2"></i>
+                    <h6 class="text-muted">Credit Outstanding</h6>
+                    <h4 class="text-danger fw-bold">UGX 4,200,000</h4>
+                </div>
             </div>
         </div>
 
-        <div class="card shadow hover-card text-center p-3 flex-fill" style="max-width: 300px;">
-            <div class="card-body">
-                <i class="bi bi-currency-dollar fs-1 text-success mb-2"></i>
-                <h6 class="text-muted">Today's Sales</h6>
-                <h4 class="text-success fw-bold">UGX 8,500,000</h4>
+        <!-- QUICK ACTION BUTTONS -->
+        <div class="card shadow border-0">
+            <div class="card-header bg-success text-white fw-bold">
+                Quick Actions
+            </div>
+            <div class="card-body text-center">
+                <a href="procurement.html" class="btn btn-success btn-lg m-2 shadow-sm">
+                    <i class="bi bi-cart-plus me-1"></i> Record Procurement
+                </a>
+                <a href="sales.html" class="btn btn-success btn-lg m-2 shadow-sm">
+                    <i class="bi bi-bag-check me-1"></i> Record Sale
+                </a>
+                <a href="credit-sales.html" class="btn btn-warning btn-lg m-2 text-white shadow-sm">
+                    <i class="bi bi-wallet2 me-1"></i> Record Credit Sale
+                </a>
             </div>
         </div>
 
-        <div class="card shadow hover-card text-center p-3 flex-fill" style="max-width: 300px;">
-            <div class="card-body">
-                <i class="bi bi-wallet2 fs-1 text-danger mb-2"></i>
-                <h6 class="text-muted">Credit Outstanding</h6>
-                <h4 class="text-danger fw-bold">UGX 4,200,000</h4>
-            </div>
-        </div>
-
+        <!-- FOOTER -->
+        <footer class="text-center text-muted mt-5 mb-3">
+            &copy; 2026 Karibu Groceries LTD
+        </footer>
     </div>
-</div>
 
-
-<!-- QUICK ACTION BUTTONS -->
-<div class="container mt-5">
-    <div class="card shadow border-0">
-        <div class="card-header bg-success text-white fw-bold">
-            Quick Actions
-        </div>
-        <div class="card-body text-center">
-            <a href="procurement.html" class="btn btn-success btn-lg m-2 shadow-sm">
-                <i class="bi bi-cart-plus me-1"></i> Record Procurement
-            </a>
-            <a href="sales.html" class="btn btn-success btn-lg m-2 shadow-sm">
-                <i class="bi bi-bag-check me-1"></i> Record Sale
-            </a>
-            <a href="credit-sales.html" class="btn btn-warning btn-lg m-2 text-white shadow-sm">
-                <i class="bi bi-wallet2 me-1"></i> Record Credit Sale
-            </a>
-        </div>
-    </div>
-</div>
-
-<!-- FOOTER -->
-<footer class="text-center text-muted mt-5 mb-3">
-    &copy; 2026 Karibu Groceries LTD
-</footer>
-
-<!-- BOOTSTRAP JS -->
-<script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- BOOTSTRAP JS -->
+    <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
