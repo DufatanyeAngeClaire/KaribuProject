@@ -2,96 +2,149 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Produce Procurement</title>
+    <title>KGL Dashboard</title>
 
     <!-- OFFLINE BOOTSTRAP -->
     <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/bootstrap-icons/bootstrap-icons.css">
 
-    <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body {
+            overflow-x: hidden;
+        }
 
+        .sidebar {
+            width: 230px;
+            height: 100vh;
+            position: fixed;
+            background-color: #198754;
+            padding-top: 20px;
+        }
 
+        .sidebar a {
+            display: block;
+            padding: 10px 20px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        .main-content {
+            margin-left: 230px;
+            padding: 30px;
+        }
+    </style>
 </head>
 <body class="bg-light">
 
-    <!-- SIDEBAR -->
-    <div class="sidebar d-flex flex-column align-items-start">
-        <!-- Logo -->
-        <a class="d-flex align-items-center text-white text-decoration-none mb-4 px-3" href="dashboard.html">
-            <img src="/assets/image/no background.png" alt="KGL Logo" width="50" height="50" class="rounded-circle me-2 shadow-sm">
-           
-        </a>
-
-        <!-- Links -->
-        <a href="dashboard.html" class="active">Dashboard</a>
-        <a href="procurement.html">Procurement</a>
-        <a href="sales.html">Sales</a>
-        <a href="credit-sales.html">Credit Sales</a>
-        <a href="reports.html">Reports</a>
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <div class="text-center mb-4">
+        <img src="/assets/image/no background.png" width="60" class="rounded-circle shadow">
+        <h6 class="text-white mt-2">KGL System</h6>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div class="main-content">
-        <!-- PAGE TITLE -->
-        <div class="text-center mb-4">
+    <a href="dashboard.html" class="active"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
+    <a href="procurement.html"><i class="bi bi-cart-plus me-2"></i>Procurement</a>
+    <a href="sales.html"><i class="bi bi-bag-check me-2"></i>Sales</a>
+    <a href="credit-sales.html"><i class="bi bi-wallet2 me-2"></i>Credit Sales</a>
+    <a href="reports.html"><i class="bi bi-graph-up me-2"></i>Reports</a>
+
+    <a href="#" id="logoutBtn" class="mt-auto text-danger">
+        <i class="bi bi-box-arrow-right me-2"></i>Logout
+    </a>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
             <h3 class="fw-bold text-success">Dashboard</h3>
-            <p class="text-muted">Welcome to Karibu Groceries Management System</p>
+            <p class="text-muted mb-0">Karibu Groceries Management System</p>
         </div>
 
-        <!-- SUMMARY CARDS -->
-        <div class="d-flex flex-wrap justify-content-center gap-4 mb-5">
-            <div class="card shadow hover-card text-center p-3 flex-fill" style="max-width: 300px;">
-                <div class="card-body">
-                    <i class="bi bi-box-seam fs-1 text-success mb-2"></i>
-                    <h6 class="text-muted">Total Stock Available</h6>
-                    <h4 class="text-success fw-bold">12,000 KG</h4>
-                </div>
-            </div>
-
-            <div class="card shadow hover-card text-center p-3 flex-fill" style="max-width: 300px;">
-                <div class="card-body">
-                    <i class="bi bi-currency-dollar fs-1 text-success mb-2"></i>
-                    <h6 class="text-muted">Today's Sales</h6>
-                    <h4 class="text-success fw-bold">UGX 8,500,000</h4>
-                </div>
-            </div>
-
-            <div class="card shadow hover-card text-center p-3 flex-fill" style="max-width: 300px;">
-                <div class="card-body">
-                    <i class="bi bi-wallet2 fs-1 text-danger mb-2"></i>
-                    <h6 class="text-muted">Credit Outstanding</h6>
-                    <h4 class="text-danger fw-bold">UGX 4,200,000</h4>
-                </div>
-            </div>
-        </div>
-
-        <!-- QUICK ACTION BUTTONS -->
-        <div class="card shadow border-0">
-            <div class="card-header bg-success text-white fw-bold">
-                Quick Actions
-            </div>
-            <div class="card-body text-center">
-                <a href="procurement.html" class="btn btn-success btn-lg m-2 shadow-sm">
-                    <i class="bi bi-cart-plus me-1"></i> Record Procurement
-                </a>
-                <a href="sales.html" class="btn btn-success btn-lg m-2 shadow-sm">
-                    <i class="bi bi-bag-check me-1"></i> Record Sale
-                </a>
-                <a href="credit-sales.html" class="btn btn-warning btn-lg m-2 text-white shadow-sm">
-                    <i class="bi bi-wallet2 me-1"></i> Record Credit Sale
-                </a>
-            </div>
-        </div>
-
-        <!-- FOOTER -->
-        <footer class="text-center text-muted mt-5 mb-3">
-            &copy; 2026 Karibu Groceries LTD
-        </footer>
+        <span id="loggedInUser" class="badge bg-success fs-6 px-3 py-2"></span>
     </div>
 
-    <!-- BOOTSTRAP JS -->
-    <script src="css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- SUMMARY CARDS -->
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="card shadow text-center">
+                <div class="card-body">
+                    <i class="bi bi-box-seam fs-1 text-success"></i>
+                    <h6 class="text-muted mt-2">Total Stock</h6>
+                    <h4 class="fw-bold text-success">12,000 KG</h4>
+                </div>
+            </div>
+        </div>
 
+        <div class="col-md-4">
+            <div class="card shadow text-center">
+                <div class="card-body">
+                    <i class="bi bi-currency-dollar fs-1 text-success"></i>
+                    <h6 class="text-muted mt-2">Today’s Sales</h6>
+                    <h4 class="fw-bold text-success">UGX 8,500,000</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow text-center">
+                <div class="card-body">
+                    <i class="bi bi-wallet2 fs-1 text-danger"></i>
+                    <h6 class="text-muted mt-2">Credit Outstanding</h6>
+                    <h4 class="fw-bold text-danger">UGX 4,200,000</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- QUICK ACTIONS -->
+    <div class="card shadow">
+        <div class="card-header bg-success text-white fw-bold">
+            Quick Actions
+        </div>
+        <div class="card-body text-center">
+            <a href="procurement.html" class="btn btn-success btn-lg m-2">
+                <i class="bi bi-cart-plus me-1"></i> Record Procurement
+            </a>
+            <a href="sales.html" class="btn btn-success btn-lg m-2">
+                <i class="bi bi-bag-check me-1"></i> Record Sale
+            </a>
+            <a href="credit-sales.html" class="btn btn-warning btn-lg m-2 text-white">
+                <i class="bi bi-wallet2 me-1"></i> Credit Sale
+            </a>
+        </div>
+    </div>
+
+    <footer class="text-center text-muted mt-5">
+        &copy; 2026 Karibu Groceries LTD
+    </footer>
+</div>
+
+<!-- SESSION SCRIPT -->
+<script>
+    const session = JSON.parse(localStorage.getItem("currentSession"));
+
+    if (!session) {
+        window.location.href = "index.html";
+    } else {
+        document.getElementById("loggedInUser").textContent =
+            `Welcome: ${session.username} (${session.role})`;
+    }
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+        localStorage.removeItem("currentSession");
+        window.location.href = "index.html";
+    });
+</script>
+
+<script src="/css/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
