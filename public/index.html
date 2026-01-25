@@ -11,7 +11,7 @@
 <body class="bg-light">
 
 <!-- TOAST CONTAINER -->
-<div class="toast-container" id="toastContainer"></div>
+<div class="kgl-toast" id="toastContainer"></div>
 
 <!-- LOGIN CONTAINER -->
 <div class="container vh-100 d-flex justify-content-center align-items-center">
@@ -73,7 +73,8 @@ function showToast(message, type = "success") {
     const container = document.getElementById("toastContainer");
 
     const toast = document.createElement("div");
-    toast.className = `toast toast-${type}`;
+    toast.className = `kgl-toast kgl-toast-${type}`;
+
     toast.textContent = message;
 
     container.appendChild(toast);
